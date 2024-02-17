@@ -82,5 +82,5 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-    - name: List results
-      run: ls ../results/
+    - name: cat results
+      run: cat ../results/cpp.sarif
