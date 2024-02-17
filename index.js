@@ -17,7 +17,7 @@ const init = async()=>{
         data:{
             sarif:sarif.toString('base64'),
             ref: 'refs/pull/2/merge',
-            commit_oid:"e8c3993956dcd1a50d5eddd1dce59a7c67fa78fd",
+            commit_oid:"c451ce227bba6760132f445fe5e0f02b3527f296",
             analysis_key: '.github/workflows/codeql.yml:analyze'
         }
     }).catch(e=>console.log(e)));
