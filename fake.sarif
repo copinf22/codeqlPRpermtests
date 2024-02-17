@@ -1651,7 +1651,7 @@
       } ],
       "partialFingerprints" : {
         "primaryLocationLineHash" : "cb9a39380816734:1",
-        "primaryLocationStartColumnFingerprint" : "7"
+        "primaryLocationStartColumnFingerprint" : "9"
       },
       "codeFlows" : [ {
         "threadFlows" : [ {
@@ -1704,6 +1704,95 @@
           },
           "region" : {
             "startLine" : 10,
+            "startColumn" : 11,
+            "endColumn" : 15
+          }
+        },
+        "message" : {
+          "text" : "string read by fgets"
+        }
+      } ]
+    },{
+      "ruleId" : "cpp/tainted-format-string",
+      "rule" : {
+        "id" : "cpp/tainted-format-string",
+        "index" : 25,
+        "toolComponent" : {
+          "index" : 0
+        }
+      },
+      "message" : {
+        "text" : "The value of this argument may come from [string read by fgets](1) and is being used as a formatting argument to printf(__format)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "example.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 12,
+            "startColumn" : 12,
+            "endColumn" : 16
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "cb9a39380816734:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "example.c",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 10,
+                  "startColumn" : 11,
+                  "endColumn" : 15
+                }
+              },
+              "message" : {
+                "text" : "fgets output argument"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "example.c",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 11,
+                  "startColumn" : 12,
+                  "endColumn" : 16
+                }
+              },
+              "message" : {
+                "text" : "*buf2"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "example.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 11,
             "startColumn" : 11,
             "endColumn" : 15
           }
