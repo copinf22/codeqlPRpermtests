@@ -16,8 +16,8 @@ const init = async()=>{
     console.log(await octokit.request('PUT /repos/nickcopi/codeqlPRpermtests/code-scanning/analysis',{
         data:{
             sarif:sarif.toString('base64'),
-            ref: 'refs/pull/2/merge',
-            commit_oid:process.env['GITHUB_SHA'],
+            ref: 'refs/pull/1/merge',
+            commit_oid:"b9c5937046f72d2cb8193ebf4171eb6e617af50d",
             analysis_key: '.github/workflows/codeql.yml:analyze'
         }
     }).catch(e=>console.log(e)));
