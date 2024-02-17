@@ -1623,6 +1623,95 @@
           "text" : "string read by fgets"
         }
       } ]
+    },{
+      "ruleId" : "cpp/tainted-format-string",
+      "rule" : {
+        "id" : "cpp/tainted-format-string",
+        "index" : 25,
+        "toolComponent" : {
+          "index" : 0
+        }
+      },
+      "message" : {
+        "text" : "The value of this argument may come from [string read by fgets](1) and is being used as a formatting argument to printf(__format)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "example.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 3,
+            "startColumn" : 12,
+            "endColumn" : 15
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "8faa9d27d4730271:1",
+        "primaryLocationStartColumnFingerprint" : "3"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "example.c",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 6,
+                  "startColumn" : 11,
+                  "endColumn" : 14
+                }
+              },
+              "message" : {
+                "text" : "fgets output argumesnt"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "example.c",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 7,
+                  "startColumn" : 12,
+                  "endColumn" : 15
+                }
+              },
+              "message" : {
+                "text" : "*buf"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "example.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 6,
+            "startColumn" : 11,
+            "endColumn" : 14
+          }
+        },
+        "message" : {
+          "text" : "string read by fgetss"
+        }
+      } ]
     }, {
       "ruleId" : "cpp/tainted-format-string",
       "rule" : {
