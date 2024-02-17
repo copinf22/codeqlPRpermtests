@@ -6,15 +6,20 @@ const init = async()=>{
     const octokit = new Octokit({
         auth: process.argv[2]
     });
-    //try #1, upload sarif via external endpoint
-    console.log(await octokit.request('POST /repos/nickcopi/codeqlPRpermtests/code-scanning/sarifs',{
+    //try #1, upload sarif via external endpoint -- token not scoped for this
+    /*console.log(await octokit.request('POST /repos/nickcopi/codeqlPRpermtests/code-scanning/sarifs',{
         commit_sha:'e8c3993956dcd1a50d5eddd1dce59a7c67fa78fd',
         ref: 'refs/heads/main',
         sarif:sarif.toString('base64')
+    }).catch(e=>console.log(e)));*/
+    //try #2, rev eng what the official action does for sarif upload and try to do that off ref
+    console.log(await octokit.request('PUT /repos/nickcopi/codeqlPRpermtests/code-scanning/analysis',{
+        data:{
+            sarif:sarif.toString('base64'),
+            ref: 'refs/heads/main',
+            commit_oid:"e8c3993956dcd1a50d5eddd1dce59a7c67fa78fd"
+        }
     }).catch(e=>console.log(e)));
-    /*await octokit.request('PUT /repos/nickcopi/codeqlPRpermtests/code-scanning/analysis',{
-
-    });*/
 
 }
 init();
